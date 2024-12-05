@@ -1,0 +1,232 @@
+<div class="col large-9">
+    <div class="product-main">
+        <div class="row">
+            <div class="large-5 col">
+
+                <div class="product-images relative mb-half has-hover woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4">
+
+                    <div class="badge-container is-larger absolute left top z-1">
+                    </div>
+                    <div class="image-tools absolute top show-on-hover right z-3">
+                    </div>
+
+                    <figure class="woocommerce-product-gallery__wrapper product-gallery-slider slider slider-nav-small mb-half" data-flickity-options='{
+"cellAlign": "center",
+"wrapAround": true,
+"autoPlay": false,
+"prevNextButtons":true,
+"adaptiveHeight": true,
+"imagesLoaded": true,
+"lazyLoad": 1,
+"dragThreshold" : 15,
+"pageDots": false,
+"rightToLeft": false       }'>
+                        <div data-thumb="{{ asset('documents/website/'.$product->image) }}" class="woocommerce-product-gallery__image slide first">
+                            <a><img width="400" height="482" src="{{ asset('documents/website/'.$product->image) }}" class="wp-post-image" alt="" title="am-chen-men-kem-vuong-bac-135" data-caption="" data-src="{{ asset('documents/website/'.$product->image) }}"
+                                    data-large_image="{{ asset('documents/website/'.$product->image) }}" data-large_image_width="400" data-large_image_height="482" srcset="{{ asset('documents/website/'.$product->image) }} 400w, {{ asset('documents/website/'.$product->image) }} 249w"
+                                    sizes="(max-width: 400px) 100vw, 400px"></a>
+                        </div>
+
+                        @if (count($product->images) > 0) @foreach ($product->images as $item)
+                        <div data-thumb="{{ asset('documents/website/'.$item->image) }}" class="woocommerce-product-gallery__image slide first">
+                            <a><img width="400" height="482" src="{{ asset('documents/website/'.$item->image) }}" class="wp-post-image" alt="" title="am-chen-men-kem-vuong-bac-135" data-caption="" data-src="{{ asset('documents/website/'.$item->image) }}"
+                                    data-large_image="{{ asset('documents/website/'.$item->image) }}" data-large_image_width="400" data-large_image_height="482" srcset="{{ asset('documents/website/'.$item->image) }} 400w, {{ asset('documents/website/'.$item->image) }} 249w"
+                                    sizes="(max-width: 400px) 100vw, 400px"></a>
+                        </div>
+                        @endforeach @endif
+
+                    </figure>
+
+                    {{--
+                    <div class="image-tools absolute bottom left z-3">
+                        <a href="#product-zoom" class="zoom-button button is-outline circle icon tooltip hide-for-small" title="Zoom">
+                            <i class="icon-expand"></i> </a>
+                    </div> --}}
+                </div>
+
+
+                <div class="product-thumbnails thumbnails slider-no-arrows slider row row-small row-slider slider-nav-small small-columns-4" data-flickity-options='{
+"cellAlign": "left",
+"wrapAround": false,
+"autoPlay": false,
+"prevNextButtons":true,
+"asNavFor": ".product-gallery-slider",
+"percentPosition": true,
+"imagesLoaded": true,
+"pageDots": false,
+"rightToLeft": false,
+"contain": true
+}'>
+                    <div class="col is-nav-selected first">
+                        <a>
+                            <img src="{{ asset('documents/website/'.$product->image) }}" width="300" height="300" class="attachment-woocommerce_thumbnail"> </a>
+                    </div>
+
+                    @if (count($product->images) > 0) @foreach ($product->images as $item)
+                    <div class="col">
+                        <a>
+                                <img src="{{ asset('documents/website/'.$item->image) }}" width="300" height="300" class="attachment-woocommerce_thumbnail"> </a>
+                    </div>
+                    @endforeach @endif
+
+                </div>
+                <!-- .product-thumbnails -->
+
+            </div>
+
+
+            <div class="product-info summary entry-summary col col-fit product-summary">
+                <h1 class="product-title entry-title" style="margin-bottom:0">
+                    {{ $product->name }}</h1>
+                <div style="display:flex">
+                    <p>
+                        <i style="color:rgb(218, 181, 32)" class="icon-star"></i>
+                        <i style="color:rgb(218, 181, 32)" class="icon-star"></i>
+                        <i style="color:rgb(218, 181, 32)" class="icon-star"></i>
+                        <i style="color:rgb(218, 181, 32)" class="icon-star"></i>
+                        <i style="color:rgb(218, 181, 32)" class="icon-star"></i> (Viết đánh giá)&nbsp; | Tình trạng: <span style="color: rgb(45, 192, 152)">sẵn hàng</span> &nbsp; | Lượt xem: <span style="color: rgb(45, 192, 152)">0</span>
+                    </p>
+                </div>
+                <div class="price-wrapper">
+                    @if ($product->price > 0)
+                    <p class="price product-page-price ">
+                        <span class="woocommerce-Price-amount amount">{{ number_format($product->price, 0,0,'.') }}<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
+                    </p>
+                    @else
+                    <p class="price product-page-price ">
+                        <span class="woocommerce-Price-amount amount">Liên hệ</span>
+                    </p>
+                    @endif
+
+                </div>
+                <div class="product-short-description">
+                    <p>{!! $product->description !!}</p>
+                </div>
+                {{--
+                <div class="note-san-pham"><span style="color: red; font-weight: bold">Chính sách bán hàng:</span><br> - Giao hàng toàn quốc, khách hàng thanh toán tiền vận chuyển<br> - Được kiểm tra sản phẩm khi nhận hàng.<br> - Thanh toán khi nhận hàng.<br> - Nhận hàng từ 3-6
+                    ngày (đối với đơn hàng lớn</div> --}} {{--
+                <p class="stock in-stock">Còn hàng</p> --}}
+
+
+                <form class="cart" method="post" enctype='multipart/form-data'>
+                    <div class="quantity buttons_added">
+                        <input type="button" value="-" class="minus button is-form"> <label class="screen-reader-text" for="quantity_64535ec7072f5">Số lượng</label>
+                        <input type="number" id="quantity" class="input-text qty text" step="1" min="1" max="9999" name="quantity" value="1" title="SL" size="4" pattern="[0-9]*" inputmode="numeric" aria-labelledby="">
+                        <input type="button" value="+" class="plus button is-form"> </div>
+
+                    <button type="button" onclick="buyNow({{ $product->id }})" value="1226" class="single_add_to_cart_button button alt">Thêm vào giỏ</button>
+
+                </form>
+
+
+                <div class="product_meta">
+
+
+
+
+
+                    <span class="posted_in">Danh mục: <a href="{{ url('shop/' . ktc_str_convert($product->category->name) . '_' . $product->category->id . '.html') }}" rel="tag">{{ $product->category->name }}</a></span>
+
+
+                </div>
+
+
+            </div>
+            <!-- .summary -->
+        </div>
+        <!-- .row -->
+    </div>
+    <!-- .product-main -->
+    <div class="product-footer">
+
+        <div class="woocommerce-tabs container tabbed-content">
+            <ul class="product-tabs  nav small-nav-collapse tabs nav nav-uppercase nav-line nav-left">
+                <li class="description_tab  active">
+                    <a href="#tab-description">Mô tả</a>
+                </li>
+
+            </ul>
+            <div class="tab-panels">
+
+                <div class="panel entry-content active" id="tab-description">
+
+
+                    <p>{!! $product->content !!}</p>
+                </div>
+
+
+
+
+
+            </div>
+            <!-- .tab-panels -->
+        </div>
+        <!-- .tabbed-content -->
+
+
+        <div class="related related-products-wrapper product-section">
+
+            <h3 class="product-section-title container-width product-section-title-related pt-half pb-half uppercase">
+                Sản phẩm tương tự </h3>
+
+
+
+            <div class="row large-columns-5 medium-columns-3 small-columns-2 row-small slider row-slider slider-nav-reveal slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
+
+
+                @if (count($products_other) > 0) @foreach ($products_other as $item)
+                <div class="product-small col has-hover post-1230 product type-product status-publish has-post-thumbnail product_cat-am-chen-bat-trang product_cat-bo-am-chen-men-kem  instock shipping-taxable purchasable product-type-simple">
+                    <div class="col-inner">
+
+                        <div class="badge-container absolute left top z-1">
+                        </div>
+                        <div class="product-small box ">
+                            <div class="box-image">
+                                <div class="image-none">
+                                    <a href="{{ url('san-pham/' . ktc_str_convert($item->name) . '_' . $item->id . '.html') }}">
+                                            <img width="300" height="300" src="{{ asset('documents/website/' . $item->image) }}" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="{{ asset('documents/website/' . $item->image) }} 300w, {{ asset('documents/website/' . $item->image) }} 150w, {{ asset('documents/website/' . $item->image) }} 180w, {{ asset('documents/website/' . $item->image) }} 600w"
+                                                sizes="(max-width: 300px) 100vw, 300px"> </a>
+                                </div>
+                                <div class="image-tools is-small top right show-on-hover">
+                                </div>
+                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
+                                </div>
+                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                </div>
+                            </div>
+                            <!-- box-image -->
+
+                            <div class="box-text box-text-products text-center grid-style-2">
+                                <div class="title-wrapper">
+                                    <p class="name product-title"><a href="{{ url('san-pham/' . ktc_str_convert($item->name) . '_' . $item->id . '.html') }}">{{ $item->name }}</a></p>
+                                </div>
+                                <div class="price-wrapper">
+                                    @if ($item->price > 0)
+                                    <span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($item->price, 0, 0, '.') }}<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
+                                    </span>
+                                    @else
+                                    <span class="price"><span class="woocommerce-Price-amount amount">Liên hệ</span>
+                                    </span>
+                                    @endif
+
+                                </div>
+                            </div>
+                            <!-- box-text -->
+                        </div>
+                        <!-- box -->
+                    </div>
+                    <!-- .col-inner -->
+                </div>
+                @endforeach @else
+                <h4>Sản phẩm đang cập nhật</h4>
+                @endif
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

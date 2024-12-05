@@ -1,0 +1,16 @@
+/node_modules
+/storage/*.key
+composer.lock
+/vendor
+/public/wp-content
+public/css
+public/sitemap.xml
+/public/documents
+/.idea
+/.vagrant
+/database/migrations
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
